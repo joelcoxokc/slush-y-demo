@@ -93,7 +93,7 @@ gulp
     process.env.NODE_ENV = 'development';
     // return g.nodemon('./server');
     require('./server');
-    // return
+    return
 
   });
 
