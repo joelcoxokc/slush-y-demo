@@ -1,0 +1,23 @@
+{
+  "appName": "Beast",
+  "appDescription": "Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js",
+  "appKeywords": "MongoDB, Express, AngularJS, Node.js",
+  "appAuthor": "Joel",
+  "script": "js",
+  "httpType": "http",
+  "modules": ["angularCookies", "angularAnimate", "angularTouch", "angularSanitize"],
+  "auth": true,
+  "slugifiedAppName": "beast",
+  "humanizedAppName": "Beast",
+  "capitalizedAppAuthor": "Joel",
+  "angularCookies": true,
+  "angularAnimate": true,
+  "angularTouch": true,
+  "angularSanitize": true,
+  "clientDir": "./client",
+  "serverDir": "./server",
+  "base": false,
+  "js": true,
+  "http": true,
+  "restangular": false
+}
