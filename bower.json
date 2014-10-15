@@ -19,7 +19,8 @@
     "angular-mocks": "~1.2.25",
     "angular-ui-utils": "~0.1.1",
     "angular-touch": "~1.2",
-    "toastr": "~2.0.3"
+    "toastr": "~2.0.3",
+    "material-styles": "*"
   },
   "devDependencies": {
     "angular-mocks": ">=1.2.*",
@@ -27,12 +28,12 @@
   },
   "overrides": {
     "font-awesome": {
-        "main": "./css/font-awesome.css"
+      "main": "./css/font-awesome.css"
     },
     "bootstrap": {
-        "main": [
-          "./dist/js/bootstrap.js"
-        ]
+      "main": [
+        "./dist/js/bootstrap.js"
+      ]
     }
   }
 }

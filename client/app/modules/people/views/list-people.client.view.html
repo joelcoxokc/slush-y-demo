@@ -1,0 +1,14 @@
+<section>
+    <div class="page-header">
+        <h1>People</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="person in people" data-ng-href="#/people/{{person._id}}" class="list-group-item">
+            <small class="list-group-item-text">{{person.created | date:'medium'}} / {{person.user.displayName}}</small>
+            <h4 class="list-group-item-heading">{{person.name}}</h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!people.$resolved || people.length">
+    	No People yet, why don't you <a href="#/people/create">create one</a>?
+    </div>
+</section>

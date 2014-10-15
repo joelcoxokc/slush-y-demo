@@ -12,7 +12,7 @@ angular
       {
       'title': 'Home',
       'link': '/',
-      'color': 'deeporange-300'
+      'color': 'pink-400'
       },{
       'title': 'Generators',
       'link': '/generators',
