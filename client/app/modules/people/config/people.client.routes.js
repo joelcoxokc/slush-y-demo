@@ -9,45 +9,49 @@
   /* @inject */
   function Configuration($stateProvider) {
     // People state routing
+
+    /*changed state names*/
     $stateProvider
-      .state('listPeople', {
+      .state('people', {
         url: '/people',
-        templateUrl: 'app/modules/people/views/list-people.client.view.html',
+        templateUrl: 'app/modules/people/views/people.view.html',
         controller: 'PeopleController',
         resolve: {
-          resolvedList: resolvedList
+          resolvedList: resolvedPerson
         }
       })
-      .state('createPerson', {
-        url: '/people/create',
+      .state('people.create', {
+        url: '/create',
         templateUrl: 'app/modules/people/views/create-person.client.view.html',
         controller: 'PeopleCreateController'
       })
-      .state('viewPerson', {
-        url: '/people/:personId',
+      .state('people.detail', {
+        url: '/:personId',
         templateUrl: 'app/modules/people/views/view-person.client.view.html',
         controller: 'PeopleDetailController',
         resolve: {
-          resolvedDetail: resolvedDetail
+          resolvedDetail: resolvedPeople
         }
       })
-      .state('editPerson', {
-        url: '/people/:personId/edit',
+      .state('people.edit', {
+        url: '/:personId/edit',
         templateUrl: 'app/modules/people/views/edit-person.client.view.html',
-        controller: 'PeopleDetailController',
+        controller: 'PeopleUpdateController',
         resolve: {
-          resolvedDetail: resolvedDetail
+          resolvedDetail: resolvedPeople
         }
       });
 
     ////////////////
-    function resolvedDetail($stateParams, People){
+    /*changed name*/
+    function resolvedPerson($stateParams, People){
       return People.one($stateParams.personId)
         .then( function ( response ){
           return response.data;
         })
     }
-    function resolvedList(People){
+
+    function resolvedPeople(People){
       return People.all()
         .then( function ( response ){
           return response.data;

@@ -6,17 +6,21 @@ angular
   .controller('NavbarCtrl', NavbarCtrl);
 
   /* @inject */
-  function NavbarCtrl($scope, $location, Auth, Menus) {
+  function NavbarCtrl($scope, $location, Auth, Menus, $state) {
     var vm = this;
     vm.menu = [
       {
-      'title': 'Home',
-      'link': '/',
-      'color': 'pink-400'
+        'title': 'Home',
+        'link': 'home',
+        'color': 'pink-400'
       },{
         'title': 'Generators',
-        'link': '/generators',
-        'color': 'blue-A400'
+        'link': 'generators',
+        'color': 'light-green-500'
+      },{
+        'title': 'Articles',
+        'link': 'articles',
+        'color': 'orange-400'
       }
     ];
 
@@ -39,8 +43,8 @@ angular
       $location.path('/signout');
     }
 
-    function isActive(route) {
-      return route === $location.path();
+    function isActive(state) {
+      return $state.includes(state);
     }
   }
 }).call(this);

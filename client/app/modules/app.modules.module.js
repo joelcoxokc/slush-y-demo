@@ -5,7 +5,8 @@
       'authentication',
       'administration',
       'generators',
-      'people'
+      'people',
+      'articles'
     ]);
 
 }).call(this);

@@ -3,14 +3,11 @@
 
   angular
     .module('core')
-    .factory('People', People);
+    .factory('Articles', Articles);
     /* @inject */
-    function People($http, serverUrl, $q, logger) {
+    function Articles($http, serverUrl, $q, logger) {
       // Define Private Variables
-
-      /*Changed Name*/
-      var api = createUrl(serverUrl, 'people');
-
+      var api = [serverUrl,'articles'].join('/')
       // Define the public api
       var instance = {
         all: all,
@@ -34,7 +31,7 @@
         $http
           .post( api, data )
           .then( function (data){
-            logger.logSuccess('People Saved');
+            logger.logSuccess('Articles Saved');
             q.resolve( data );
           })
           .catch( function (err){
@@ -48,7 +45,7 @@
         $http
           .put( createUrl( api, id ), data )
           .then( function (data){
-            logger.logSuccess('Person Updated Successfully');
+            logger.logSuccess('Article Updated Successfully');
             q.resolve( data );
           })
           .catch( function (err){
