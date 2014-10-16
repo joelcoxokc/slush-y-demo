@@ -11,7 +11,6 @@ angular
   'ui.bootstrap',
   'core',
   'app.modules'
-
   ])
   .run( run );
 

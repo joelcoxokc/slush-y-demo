@@ -4,7 +4,8 @@
     .module('app.modules', [
       'authentication',
       'administration',
-      'generators'
+      'generators',
+      'people'
     ]);
 
 }).call(this);

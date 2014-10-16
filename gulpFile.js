@@ -70,12 +70,17 @@ var dist = {
   images: './dist/images',
   bower: './dist/bower_components'
 }
+
 /*
  | default
  */
 
 gulp
   .task('default', ['dev']);
+
+// gulp.task('runn', ['development'])
+
+
 
 /*
  | dev = build:dev then server:dev & watch -> develompent mode;
@@ -99,7 +104,7 @@ gulp
 
 gulp
   .task('watch', function (){
-
+    g.livereload.listen();
     gulp.watch(client.scripts, ['scripts:dev']);
     gulp.watch(client.styles, g.livereload.changed);
     gulp.watch(client.templates, g.livereload.changed);

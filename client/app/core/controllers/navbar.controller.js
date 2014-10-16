@@ -14,9 +14,9 @@ angular
       'link': '/',
       'color': 'pink-400'
       },{
-      'title': 'Generators',
-      'link': '/generators',
-      'color': 'grey-300'
+        'title': 'Generators',
+        'link': '/generators',
+        'color': 'blue-A400'
       }
     ];
 
