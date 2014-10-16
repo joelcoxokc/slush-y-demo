@@ -18,8 +18,8 @@
           resolvedList: resolvedList
         }
       })
-      .state('articles.create', {
-        url: '/create',
+      .state('articles-create', {
+        url: '/articles/create',
         templateUrl: 'app/modules/articles/views/create-article.client.view.html',
         controller: 'ArticlesCreateController'
       })
@@ -31,8 +31,8 @@
           resolvedDetail: resolvedDetail
         }
       })
-      .state('articles.edit', {
-        url: '/:articleId/edit',
+      .state('articles-edit', {
+        url: 'articles/:articleId/edit',
         templateUrl: 'app/modules/articles/views/edit-article.client.view.html',
         controller: 'ArticlesDetailController',
         resolve: {

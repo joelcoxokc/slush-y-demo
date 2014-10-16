@@ -9,12 +9,10 @@
   /* @inject */
   function ArticlesController(resolvedList, $scope, $stateParams, $state, Articles, logger) {
 
-    $scope.find = find;
-    $scope.findOne = findOne;
     $scope.articles = resolvedList;
-
+    $scope.showArticle = showArticle;
     $scope.isActive = isActive;
-
+    $scope.shown = {};
     //////////////////////
     console.log($state)
     // Find a list of Articles
@@ -23,12 +21,18 @@
       return $state.includes('articles', {articleId: state});
     }
 
-    // Find existing Article
-    function findOne() {
-      Articles.one($stateParams.articleId)
-        .then( function ( response ){
-          $scope.article = response.data[0];
-        });
+
+    function showArticle(article){
+      console.log(article)
+        if(article._id === $scope.shown._id){
+          $state.go('articles');
+          $scope.showDetail = false;
+          $scope.shown = {};
+        } else {
+          $state.go('articles.detail', {articleId: article._id});
+          $scope.shown = article;
+          $scope.showDetail = true;
+        }
     }
   }
 }).call(this);

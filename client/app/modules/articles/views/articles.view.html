@@ -1,29 +1,27 @@
-<!-- articles.view.html -->
-<section class="container top">
-  <div class="row">
-    <section class="col-md-3">
-      <div class="panel">
-        <header color-blue-500 text-white class="panel-heading text-center">
-          <h3>Articles</h3></header>
+<div class="container container-sm-height equal top">
+  <div class="row row-sm-height">
+    <section class="col-md-12 col-sm-height panel" data-ng-class="{'col-md-6': showDetail}">
+      <h1 class="panel-heading">
+        Articles
+        </h1>
+      <ul class="list-group">
+        <li ng-repeat="article in articles"
+            ng-click='showArticle(article)'
+            point
+            class="list-group-item">
+            <h5>{{article.title}}
+              <button type="button"
+                      class="btn btn-sm btn-white pull-right"
+                      data-ng-hide="showDetail"
+                      y-icon="arrow-right"></button>
+            </h5>
 
-        <article class="list-group">
-          <li data-ng-repeat="article in articles"
-             data-ui-sref='articles.detail({articleId:article._id})'
-             data-ng-class="{'btn-orange-400 active text-white': isActive(article._id)}"
-             class="list-group-item btn-orange-50"
-             point>
-            <small class="list-group-item-text">{{article.created | date:'medium'}} / {{article.user.displayName}}</small>
-            <h4 class="">{{article.title}}</h4>
-          </li>
-        </article>
-      </div>
+        </li>
+      </ul>
     </section>
 
-    <section class="col-md-9">
-
-      <data-ui-view></data-ui-view>
-
+    <section class="col-md-6 col-sm-height panel" ng-show="showDetail">
+      <ui-view></ui-view>
     </section>
-
   </div>
-</section>
+</div>

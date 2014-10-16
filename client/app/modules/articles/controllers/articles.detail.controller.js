@@ -13,6 +13,8 @@
     $scope.update = update;
     $scope.article = resolvedDetail;
 
+    $scope.$emit('childShown', $scope.article._id);
+
     //////////////////////
 
     // Remove existing Article

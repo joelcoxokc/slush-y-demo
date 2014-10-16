@@ -16,11 +16,11 @@ angular
       },{
         'title': 'Generators',
         'link': 'generators',
-        'color': 'light-green-500'
+        'color': 'blue-500'
       },{
         'title': 'Articles',
         'link': 'articles',
-        'color': 'orange-400'
+        'color': 'blue-300'
       }
     ];
 
