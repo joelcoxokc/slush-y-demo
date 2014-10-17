@@ -13,28 +13,28 @@
       .state('articles', {
         url: '/articles',
         templateUrl: 'app/modules/articles/views/articles.view.html',
-        controller: 'ArticlesController',
+        controller: 'ArticlesController as vm',
         resolve: {
           resolvedList: resolvedList
         }
       })
       .state('articles-create', {
         url: '/articles/create',
-        templateUrl: 'app/modules/articles/views/create-article.client.view.html',
-        controller: 'ArticlesCreateController'
+        templateUrl: 'app/modules/articles/views/articles.create.view.html',
+        controller: 'ArticlesCreateController as vm'
       })
-      .state('articles.detail', {
-        url: '/:articleId',
-        templateUrl: 'app/modules/articles/views/view-article.client.view.html',
-        controller: 'ArticlesDetailController',
+      .state('article-detail', {
+        url: '/articles/:articleId',
+        templateUrl: 'app/modules/articles/views/article.detail.view.html',
+        controller: 'ArticlesDetailController as vm',
         resolve: {
           resolvedDetail: resolvedDetail
         }
       })
-      .state('articles-edit', {
-        url: 'articles/:articleId/edit',
-        templateUrl: 'app/modules/articles/views/edit-article.client.view.html',
-        controller: 'ArticlesDetailController',
+      .state('article-edit', {
+        url: '/articles/:articleId/edit',
+        templateUrl: 'app/modules/articles/views/article.edit.view.html',
+        controller: 'ArticlesDetailController as vm',
         resolve: {
           resolvedDetail: resolvedDetail
         }

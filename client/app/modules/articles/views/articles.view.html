@@ -1,27 +1,27 @@
-<div class="container container-sm-height equal top">
-  <div class="row row-sm-height">
-    <section class="col-md-12 col-sm-height panel" data-ng-class="{'col-md-6': showDetail}">
-      <h1 class="panel-heading">
-        Articles
+<div class="container top">
+  <div class="row">
+    <section class="col-md-12 panel">
+      <div class="row">
+        <h1 class="panel-heading color-blue-400" text-white>
+          Articles
+          <a
+             class="btn btn-clear pull-right"
+             ui-sref="articles-create"
+             y-icon='plus'></a>
         </h1>
-      <ul class="list-group">
-        <li ng-repeat="article in articles"
-            ng-click='showArticle(article)'
-            point
-            class="list-group-item">
-            <h5>{{article.title}}
-              <button type="button"
-                      class="btn btn-sm btn-white pull-right"
-                      data-ng-hide="showDetail"
-                      y-icon="arrow-right"></button>
-            </h5>
+        <ul class="list-group">
+          <li
+              ng-repeat="article in vm.articles"
+              ui-sref="article-detail({articleId: article._id})"
+              point
+              class="list-group-item">
+              <p>
+                {{article.title}}
+              </p>
 
-        </li>
-      </ul>
-    </section>
-
-    <section class="col-md-6 col-sm-height panel" ng-show="showDetail">
-      <ui-view></ui-view>
+          </li>
+        </ul>
+        </div>
     </section>
   </div>
 </div>

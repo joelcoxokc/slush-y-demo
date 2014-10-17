@@ -7,32 +7,48 @@
     .controller('ArticlesController', ArticlesController);
 
   /* @inject */
-  function ArticlesController(resolvedList, $scope, $stateParams, $state, Articles, logger) {
+  function ArticlesController(resolvedList, $scope, $stateParams, $state, Articles, logger, socket) {
 
-    $scope.articles = resolvedList;
-    $scope.showArticle = showArticle;
-    $scope.isActive = isActive;
-    $scope.shown = {};
+    var vm = this;
+    vm.articles = resolvedList;
+    vm.showArticle = showArticle;
+    vm.isActive = isActive;
+    vm.shown = {};
+
+    socket.syncUpdates('articles', vm.articles);
     //////////////////////
-    console.log($state)
-    // Find a list of Articles
+
+
     function isActive(state) {
       // console.log(state === $state.params.articleId)
       return $state.includes('articles', {articleId: state});
     }
 
-
     function showArticle(article){
-      console.log(article)
-        if(article._id === $scope.shown._id){
+        if(article._id === vm.shown._id){
           $state.go('articles');
-          $scope.showDetail = false;
-          $scope.shown = {};
+          vm.showDetail = false;
+          vm.shown = {};
         } else {
           $state.go('articles.detail', {articleId: article._id});
-          $scope.shown = article;
-          $scope.showDetail = true;
+          vm.shown = article;
+          // vm.showDetail = true;
         }
     }
+
+    /*
+        Event emitted from child states.
+     */
+    $scope.$on('child:closed', function ( event ){
+      vm.shown = {};
+      vm.showDetail = false;
+    });
+    $scope.$on('child:opened', function ( event ){
+      vm.shown = {};
+      vm.showDetail = true;
+    });
+    $scope.$on('$destroy', function () {
+      socket.unsyncUpdates('articles');
+    });
   }
 }).call(this);

@@ -33,6 +33,9 @@ var AUTOPREFIXER_BROWSERS = [
   'bb >= 10'
 ];
 
+var server = g.livereload();
+
+g.livereload.listen()
 /*
  | ###################################
  |
@@ -104,13 +107,13 @@ gulp
 
 gulp
   .task('watch', function (){
-    var server = g.livereload();
+
 
     gulp.watch('./client/app/**/*.js').on('change', function(file) {
       console.log('Changed', file)
       server.changed(file.path);
     });
-    gulp.watch('./client/app/**/*.html').on('change', function(file) {
+    gulp.watch(['./client/app/**/*.html', './client/index.html']).on('change', function(file) {
       console.log('Changed', file)
       server.changed(file.path);
     });
@@ -118,11 +121,6 @@ gulp
       console.log('Changed', file)
       server.changed(file.path);
     });
-
-
-    // gulp.watch('./client/app/**/*.js', ['scripts:dev']);
-    // gulp.watch(client.styles, g.livereload.changed);
-    // gulp.watch(client.templates, g.livereload.changed);
 
   })
 
@@ -142,7 +140,7 @@ gulp
       .pipe( g.jshint.reporter('jshint-stylish'))
       .pipe( g.concat('app.min.js') )
       .pipe( gulp.dest( './tmp' ) )
-      .pipe( g.livereload() )
+      // .pipe( g.livereload() )
   });
 
 gulp

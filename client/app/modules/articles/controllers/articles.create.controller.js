@@ -8,28 +8,24 @@
 
   /* @inject */
   function ArticlesCreateController($scope, $state, Articles, logger) {
+    var vm = this;
+    vm.create = create;
 
-    $scope.create = create;
+    $scope.$emit('child:opened');
 
     //////////////////////
 
     // Create new Article
     function create() {
-      Articles.create({name:this.name})
+      Articles.create(vm.newArticle)
         .then( function (response){
-          logger.logSuccess('Article Saved!!')
           // Redirect after save
-          $state.go('viewArticle', {articleId: response.data._id});
-
+          $state.go('article-detail', {articleId: response.data._id});
         })
         .catch( function (error){
-          logger.logError('Article not saved')
-          $scope.error = error.data.message;
+          vm.error = error.data.message;
         })
-      // Clear form fields
-      this.name = '';
     }
-
 
   }
 }).call(this);
