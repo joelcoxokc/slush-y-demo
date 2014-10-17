@@ -4,10 +4,11 @@
   angular
     .module('core')
     .factory('Articles', Articles);
+
     /* @inject */
     function Articles($http, serverUrl, $q, logger) {
       // Define Private Variables
-      var api = [serverUrl,'articles'].join('/')
+      var api = createUrl(serverUrl, 'articles');
       // Define the public api
       var instance = {
         all: all,
@@ -27,46 +28,37 @@
         return $http.get( createUrl( api, id) );
       }
       function create ( data ){
-        var q = $q.defer();
-        $http
-          .post( api, data )
-          .then( function (data){
+        return $http.post( api, data )
+          .then( function (response){
             logger.logSuccess('Articles Saved');
-            q.resolve( data );
+            return response.data;
           })
           .catch( function (err){
             logger.logError('Error Saving');
-            q.reject(err);
+            return err;
           });
-        return q.promise;
       }
       function update ( id, data ){
-        var q = $q.defer();
-        $http
-          .put( createUrl( api, id ), data )
-          .then( function (data){
+        return $http.put( createUrl( api, id ), data )
+          .then( function (response){
             logger.logSuccess('Article Updated Successfully');
-            q.resolve( data );
+            return response.data;
           })
           .catch( function (err){
             logger.logError('Error Saving');
-            q.reject(err);
+            return err
           });
-        return q.promise;
       }
       function destroy ( id ){
-        var q = $q.defer();
-        $http
-          .delete( createUrl( api, id ) )
-          .then( function (data){
+        return $http.delete( createUrl( api, id ) )
+          .then( function (response){
             logger.logSuccess('Successfully Deleted');
-            q.resolve( data );
+            return response.data;
           })
           .catch( function (err){
             logger.logError('Error Deleting');
-            q.reject(err);
+            return err;
           });
-        return q.promise;
       }
       function createUrl(){
         var args = Array.prototype.slice.call(arguments);
