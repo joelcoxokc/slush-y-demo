@@ -25,6 +25,8 @@
           Resolved Functions
        */
       //////////////
+
+      /* @inject */
       function Resolved( Thing ){
         return Thing.all()
           .then( function ( response ){
