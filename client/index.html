@@ -14,6 +14,7 @@
 <!-- bower:css -->
 <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
 <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
+<link rel="stylesheet" href="bower_components/material-styles/dist/material-styles.css" />
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -28,12 +29,11 @@
 <link rel="stylesheet" href="app/modules/authentication/styles/auth.styles.css">
 <!-- endinject -->
 
-<link rel="stylesheet" href="bower_components/material-styles/dist/material-styles.css" />
 
 <!-- END:HEAD -->
 
   </head>
-  <body ng-app="beast">
+  <body ng-app="demo">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -41,6 +41,7 @@
     <!-- Add your site or application content here -->
     <!-- <div ng-include="'app/core/views/navbar.html'"></div> -->
     <div ng-include="'app/core/views/navbar.view.html'" class="navbar navbar-default navbar-fixed-top" ng-controller="NavbarCtrl as nav"></div>
+
 
 
     <ui-view></ui-view>
@@ -117,7 +118,6 @@
 <!-- modules:js -->
 <script src="app/modules/app.modules.module.js"></script>
 <script src="app/modules/administration/administration.module.js"></script>
-<script src="app/modules/articles/articles.client.module.js"></script>
 <script src="app/modules/authentication/authentication.module.js"></script>
 <script src="app/modules/generators/generators.module.js"></script>
 <script src="app/modules/administration/config/administration.routes.js"></script>
@@ -126,12 +126,6 @@
 <script src="app/modules/administration/controllers/admin.controller.js"></script>
 <script src="app/modules/administration/controllers/profile.controller.js"></script>
 <script src="app/modules/administration/controllers/settings.controller.js"></script>
-<script src="app/modules/articles/api/articles.client.service.js"></script>
-<script src="app/modules/articles/config/articles.client.config.js"></script>
-<script src="app/modules/articles/config/articles.client.routes.js"></script>
-<script src="app/modules/articles/controllers/articles.create.controller.js"></script>
-<script src="app/modules/articles/controllers/articles.detail.controller.js"></script>
-<script src="app/modules/articles/controllers/articles.list.controller.js"></script>
 <script src="app/modules/authentication/config/auth.config.js"></script>
 <script src="app/modules/authentication/config/auth.routes.js"></script>
 <script src="app/modules/authentication/controllers/login.controller.js"></script>
@@ -141,8 +135,8 @@
 <script src="app/modules/generators/api/generators.api.js"></script>
 <script src="app/modules/generators/config/generators.config.js"></script>
 <script src="app/modules/generators/config/generators.routes.js"></script>
+<script src="app/modules/generators/controllers/generators.controller.js"></script>
 <script src="app/modules/generators/controllers/generators.detail.controller.js"></script>
-<script src="app/modules/generators/controllers/generators.list.controller.js"></script>
 <script src="app/modules/administration/directives/admin-nav/admin-nav.directive.js"></script>
 <!-- endinject -->
 

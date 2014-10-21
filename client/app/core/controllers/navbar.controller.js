@@ -10,17 +10,13 @@ angular
     var vm = this;
     vm.menu = [
       {
-        'title': 'Home',
-        'link': 'home',
-        'color': 'pink-400'
+      'title': 'Home',
+      'link': '/',
+      'color': 'pink-400'
       },{
-        'title': 'Generators',
-        'link': 'generators',
-        'color': 'blue-500'
-      },{
-        'title': 'Articles',
-        'link': 'articles',
-        'color': 'blue-300'
+      'title': 'Generators',
+      'link': '/generators',
+      'color': 'blue-500'
       }
     ];
 

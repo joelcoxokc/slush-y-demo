@@ -44,7 +44,7 @@
       }
       function update ( id, data ){
         var q = $q.defer();
-        $http
+        return $http
           .put( createUrl( api, id ), data )
           .then( function (data){
             logger.logSuccess('Saved Successfully');

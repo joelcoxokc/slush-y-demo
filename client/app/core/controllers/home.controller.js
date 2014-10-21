@@ -7,17 +7,16 @@
 
   /* @inject */
   function HomeCtrl(Resolved, $scope, Thing, socket, logger) {
-
     var vm = this;
     vm.shown = {};
     vm.awesomeThings = Resolved;
     vm.addThing = addThing;
-    // vm.deleteThing = deleteThing;
+    vm.deleteThing = deleteThing;
     vm.showThing = showThing;
     vm.createNewThing = createNewThing;
     vm.updateThing = updateThing;
 
-    vm.Thing = Thing;
+
 
     socket.syncUpdates('things', vm.awesomeThings);
 
@@ -34,12 +33,12 @@
       vm.shown = {};
     }
 
-    // function deleteThing(thing) {
-    //   // console.log(thing)
-    //   Thing.destroy(thing._id);
-    //   vm.showDetail = false;
-    //   vm.editing = false;
-    // }
+    function deleteThing(thing) {
+      // console.log(thing)
+      Thing.destroy(thing._id);
+      vm.showDetail = false;
+      vm.editing = false;
+    }
 
     function updateThing(thing){
       Thing

@@ -34,7 +34,7 @@
          */
         syncUpdates: function (modelName, collection, callback) {
           callback = callback || angular.noop;
-          console.log(collection, modelName);
+
           /**
            * Syncs item creation/updates on 'model:save'
            */
@@ -62,7 +62,6 @@
            * Syncs removed items on 'model:remove'
            */
           socket.on(modelName + ':remove', function (item) {
-            console.log('removed=============',  item);
             var event = 'deleted';
             _.remove(collection, {_id: item._id});
             callback(event, item, collection);

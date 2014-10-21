@@ -1,6 +1,5 @@
 ;(function(){
 'use strict';
-
   angular
     .module('core')
     .config( main );
@@ -25,8 +24,6 @@
           Resolved Functions
        */
       //////////////
-
-      /* @inject */
       function Resolved( Thing ){
         return Thing.all()
           .then( function ( response ){

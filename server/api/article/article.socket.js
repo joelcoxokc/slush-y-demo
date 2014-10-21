@@ -15,11 +15,9 @@ exports.register = function(socket) {
 }
 
 function onSave(socket, doc, cb) {
-  console.log('saved', doc)
   socket.emit('articles:save', doc);
 }
 
 function onRemove(socket, doc, cb) {
-  console.log('removed====================', doc)
   socket.emit('articles:remove', doc);
 }

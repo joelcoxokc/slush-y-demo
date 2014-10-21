@@ -1,0 +1,36 @@
+{
+  "ASD": {
+    "0": false,
+    "1": false,
+    "2": false,
+    "3": false,
+    "appName": "demo",
+    "userName": "joelcoxokc",
+    "authorEmail": "joelcox@hisimagination.com",
+    "slugifiedAppName": "demo",
+    "slugifiedPluralAppName": "demos",
+    "slugifiedSingularAppName": "demo",
+    "camelizedPluralAppName": "demos",
+    "camelizedSingularAppName": "",
+    "classifiedPluralAppName": "Demos",
+    "classifiedSingularAppName": "Demo",
+    "humanizedPluralAppName": "Demos",
+    "humanizedSingularAppName": "Demo",
+    "clientDir": "./client",
+    "serverDir": "./server",
+    "appDir": "./server",
+    "js": true,
+    "script": "js",
+    "auth": true,
+    "http": true,
+    "restangular": false,
+    "httpType": "http",
+    "modulesDir": "./client/app/modules",
+    "modules": [
+      "core",
+      "authentication",
+      "administration",
+      "generators"
+    ]
+  }
+}

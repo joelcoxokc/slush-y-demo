@@ -1,7 +1,7 @@
 ;(function(){
 'use strict';
 angular
-  .module('beast', [
+  .module('demo', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
@@ -11,6 +11,7 @@ angular
   'ui.bootstrap',
   'core',
   'app.modules'
+
   ])
   .run( run );
 

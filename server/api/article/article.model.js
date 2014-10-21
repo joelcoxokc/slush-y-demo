@@ -29,4 +29,3 @@
 
   module.exports = mongoose.model('Article', ArticleSchema);
 })();
-
